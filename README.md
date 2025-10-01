@@ -4,7 +4,7 @@
 Запросы начинаются с /api/
 ### Развертывание с помощью Docker: 
 1. Переименовать .env.example в .env
-2. Сбилдить и поднять проект -  `docker-sompose up` 
+2. Сбилдить и поднять проект -  `docker-compose up` 
 3. Войти в контейнер приложения - `docker exec -it todo_app bash`
 4. Установить зависимости - `composer i` 
 5. Установить ключ приложения -  `php artisan key:generate`
