@@ -23,9 +23,9 @@ class UpdateRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'title' => ['string', 'max:100'],
-            'description' => ['string'],
-            'status' => ['nullable', Rule::in(['pending', 'in_progress', 'done'])],
+            'title' => ['required','string', 'max:100'],
+            'description' => ['required','string'],
+            'status' => ['required', Rule::in(['pending', 'in_progress', 'done'])],
         ];
     }
     public function messages(): array
@@ -33,11 +33,5 @@ class UpdateRequest extends FormRequest
         return [
             'status.in' => 'The status field must be one of the following: pending, in_progress, done.',
         ];
-    }
-    protected function prepareForValidation()
-    {
-        $this->merge([
-            'status' => $this->input('status', 'pending'), // Значение по умолчанию
-        ]);
     }
 }
